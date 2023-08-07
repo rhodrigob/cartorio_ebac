@@ -66,7 +66,7 @@ int consulta() //função para consultar um novo registro no sistema
 	
 	char cpf[40]; //criação de variável/string
 	char conteudo[200]; //criação de variável/string
-	
+		
 	printf("Digite o CPF a ser consultado: "); //coletando informação do usuário
 	scanf("%s", cpf); //armazendando informação coletada
 	
@@ -116,52 +116,64 @@ int main()
 {
 	int opcao=0; //definindo as variáveis
 	int laco=1;
+	char senhadigitada[10]="a"; //variável para armazenar a senha
+	int comparacao; //variável criada para validar o valor digitado na string senha
 	
-	for(laco=1;laco=1;)
-	{ //início do laço
+	printf("### Cartório da EBAC ###\n\n");
+	printf("Login de administrador!\n\nDigite a sua senha: ");
+	scanf("%s",senhadigitada);
 	
-		system("cls"); //limpar a tela
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
+	{
+		for(laco=1;laco=1;)
+		{ //início do laço
+	
+			system("cls"); //limpar a tela
 		
-		setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
+			setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
 	
-		//início do menu
-		printf("### Cartório da EBAC ###\n\n");
-		printf("Escolha a opção desejada do menu:\n\n");
-		printf("\t1 - Registrar nomes\n");
-		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n");
-		printf("\t4 - Sair do sistema\n\n");
-		printf("Opção: ");
-		//fim do menu
+			//início do menu
+			printf("### Cartório da EBAC ###\n\n");
+			printf("Escolha a opção desejada do menu:\n\n");
+			printf("\t1 - Registrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n");
+			printf("\t4 - Sair do sistema\n\n");
+			printf("Opção: ");
+			//fim do menu
 	
-		scanf("%d", &opcao); //armazenando a escolha do usuário
+			scanf("%d", &opcao); //armazenando a escolha do usuário
 	
-		system("cls"); //limpa a tela
+			system("cls"); //limpa a tela
 		
-		switch(opcao)
-		{ //início da seleção
-			case 1:
-			registro(); //chamada da função registro
-			break;
-			
-			case 2:
-			consulta(); //chamada da função consulta
-			break;
-			
-			case 3:
-			deletar(); //chamada da função deletar
-			break;
-			
-			case 4:
-			printf("Obrigado por utilizar o sistema!\n");
-			return 0; //retonra valor 0, ou seja, quebra laços e funções e sai do sistema
-			break;
-			
-			default:
-			printf("Essa opção não está disponível\n");
-			system("pause");
-			break;
-		} //fim da seleção
-			
-	} //fim do laço
+			switch(opcao)
+			{ //início da seleção
+				case 1:
+				registro(); //chamada da função registro
+				break;
+				
+				case 2:
+				consulta(); //chamada da função consulta
+				break;
+				
+				case 3:
+				deletar(); //chamada da função deletar
+				break;
+				
+				case 4:
+				printf("Obrigado por utilizar o sistema!\n");
+				return 0; //retonra valor 0, ou seja, quebra laços e funções e sai do sistema
+				break;
+				
+				default:
+				printf("Essa opção não está disponível\n");
+				system("pause");
+				break;
+			} //fim da seleção}
+		} //fim do laço
+	}
+	else
+		printf("Senha incorreta!\n\n");
 }
